@@ -29,6 +29,7 @@ public class UrlFileReader {
             String inputLine = null;
             while ((inputLine = reader.readLine()) != null) {
                 data += inputLine;
+                System.out.println(inputLine);
             }
         } catch (IOException x) {}
         
