@@ -31,24 +31,31 @@ public class DatagramTimeServer {
     }
 
     public void startServer() {
-
         byte[] buf = new byte[256];
+        int cont = 0;
         while (true) {
-            try {
-                DatagramPacket packet = new DatagramPacket(buf, buf.length);
-                socket.receive(packet);
+            cont = 0;
+            while (cont < 5) {
+                try {
+                    DatagramPacket packet = new DatagramPacket(buf, buf.length);
+                    socket.receive(packet);
 
-                String dString = new Date().toString();
-                buf = dString.getBytes();
-                InetAddress address = packet.getAddress();
-                int port = packet.getPort();
-                packet = new DatagramPacket(buf, buf.length, address, port);
-                socket.send(packet);
-
-            } catch (IOException ex) {
-                Logger.getLogger(DatagramTimeServer.class.getName()).log(Level.SEVERE, null, ex);
+                    String dString = new Date().toString();
+                    buf = dString.getBytes();
+                    InetAddress address = packet.getAddress();
+                    int port = packet.getPort();
+                    packet = new DatagramPacket(buf, buf.length, address, port);
+                    socket.send(packet);
+                    cont++;
+                } catch (IOException ex) {
+                    Logger.getLogger(DatagramTimeServer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            socket.close();
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

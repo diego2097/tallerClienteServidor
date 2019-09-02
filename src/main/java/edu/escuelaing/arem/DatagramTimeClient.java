@@ -22,8 +22,8 @@ public class DatagramTimeClient {
 
     public static void main(String[] args) {
         byte[] sendBuf = new byte[256];
-        while (true) {
-            try {
+        try {
+            while (true) {
                 DatagramSocket socket = new DatagramSocket();
                 byte[] buf = new byte[256];
                 InetAddress address = InetAddress.getByName("127.0.0.1");
@@ -34,14 +34,18 @@ public class DatagramTimeClient {
                 socket.receive(packet);
                 String received = new String(packet.getData(), 0, packet.getLength());
                 System.out.println("Date: " + received);
-            } catch (SocketException ex) {
-                Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+        } catch (SocketException ex) {
+            Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DatagramTimeClient.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }
