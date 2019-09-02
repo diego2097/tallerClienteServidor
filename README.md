@@ -18,9 +18,9 @@ descarga en http://maven.apache.org/download.html
 para la instalacion seguir las instrucciones http://maven.apache.org/download.html#Installation
 para comprobar que quedo bien instalado usar el comando: 
 
-''' 
+``` 
 mvn -version
-'''
+```
 
 ### Descagar git
 Para descargar e instalar seguir las instrucciones en https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
