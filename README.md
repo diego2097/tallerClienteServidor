@@ -273,7 +273,7 @@ public class Cliente {
 Escriba un servidor web que soporte m´ultiples solicitudes seguidas (no concurrentes). El servidor debe retornar todos los archivos solicitados, incluyendo
 paginas html e imagenes.
 
-```
+```java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -432,7 +432,7 @@ public class HttpServer {
 Utilizando Datagramas escriba un programa que se conecte a un servidor que responde la hora actual en el servidor. El programa debe actualizar la horacada 5 segundos seg´un los datos del servidor. Si una hora no es recibida debe
 mantener la hora que tenla. Para la prueba se apagar´a el servidor y despues de unos segundos se reactivar´a. El cliente debe seguir funcionando y actualizarse
 cuando el servidor este nuevamente funcionando.
-```
+```java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
