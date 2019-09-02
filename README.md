@@ -15,7 +15,9 @@ Se debe tener instalados los siguientes programas en nuestro sistema operativo:
 
 ### Descagar maven
 descarga en http://maven.apache.org/download.html 
+
 para la instalacion seguir las instrucciones http://maven.apache.org/download.html#Installation
+
 para comprobar que quedo bien instalado usar el comando: 
 
 ``` 
